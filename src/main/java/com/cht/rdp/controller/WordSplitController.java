@@ -6,6 +6,7 @@ import com.cht.rdp.services.WordSplitServiceImpl;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.ansj.domain.Result;
+import org.ansj.domain.Term;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,12 +42,22 @@ public class WordSplitController {
         log.info("The query method is " + method);
         try {
             Result result;
+            Term term;
             switch (method) {
+                case "toAnalysis":
+                    result =  wordSplitService.toAnalysis(content);
+                    return ResponseEntity.status(HttpStatus.CREATED).body(result);
+                case "dicAnalysis":
+                    result =  wordSplitService.dicAnalysis(content);
+                    return ResponseEntity.status(HttpStatus.CREATED).body(result);
                 case "nlpAnalysis":
                     result =  wordSplitService.nlpAnalysis(content);
                     return ResponseEntity.status(HttpStatus.CREATED).body(result);
-                case "toAnalysis":
-                    result =  wordSplitService.toAnalysis(content);
+                case "indexAnalysis":
+                    result =  wordSplitService.indexAnalysis(content);
+                    return ResponseEntity.status(HttpStatus.CREATED).body(result);
+                case "baseAnalysis":
+                    result =  wordSplitService.baseAnalysis(content);
                     return ResponseEntity.status(HttpStatus.CREATED).body(result);
                 default:
                     return ResponseEntity.status(HttpStatus.CREATED).body("{\"message\""+":\""+"輸入錯誤分詞方法，請檢查後重新輸入。"+"\"}");
