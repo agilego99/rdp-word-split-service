@@ -26,7 +26,7 @@
 
 |Require|Name|Data Type|Description|Example|
 |:---|:---|:---|:---|:---|
-|require|method|string|分詞方法|toAnalysis<br>dicAnalysis<br><br>nlpAnalysis<br>indexAnalysis<br>baseAnalysis<br>|
+|require|method|string|分詞方法|toAnalysis<br>dicAnalysis<br>nlpAnalysis<br>indexAnalysis<br>baseAnalysis|
 
 
 ***
